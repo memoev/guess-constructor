@@ -33,10 +33,33 @@ var game = {
             .then(function (res) {
                 remaining =  newWord.guessWord(res.inputLetter, remaining);
                 newWord.representWord();
-                play();
+                if (remaining === 0) {
+                    console.log("GAME OVER :(");
+                    game.gameOff();
+                } else {
+                    play();
+                };
             });
         }
         play();
+    },
+    gameOff : function () {
+        inquirer
+            .prompt([
+                {
+                    type: "confirm",
+                    message: "Wanna play again??",
+                    name: "playagain",
+                    default: true
+                }
+            ])
+            .then(function (res) {
+                if (res.playagain === true) {
+                    game.gameOn(arrayOfOptions, 10);
+                } else {
+                    console.log('bye bye :D');
+                }
+            });
     }
 };
 
