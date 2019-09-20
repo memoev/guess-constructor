@@ -2,7 +2,9 @@ function Letter(char) {
     this.wordPlaceholder = [char];
     this.guessed = false;
     this.guessedLetter = function () {
-        if (this.guessed === false) {
+        if (char === ' ') {
+            return ' ';
+        } else if (this.guessed === false) {
             return '_';
         } else {
             return char;
