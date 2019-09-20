@@ -1,11 +1,14 @@
-example = 'This will be fun!'
+example = 'T'
 
-function Letter(string) {
+function Letter(char) {
     this.wordPlaceholder = [];
     this.guessed = false;
     this.guessedLetter = function () {
-        let array =  string.split('');
-        console.log(array);
+        if (this.guessed === false) {
+            return '_';
+        } else {
+            return char;
+        }
     };
     this.letterChecker =  function () {      
     }
@@ -13,4 +16,4 @@ function Letter(string) {
 
 var newLetter = new Letter(example); // Never forget to actually create the instance from the constructor!
 
-newLetter.guessedLetter();
+console.log(newLetter.guessedLetter());
