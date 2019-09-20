@@ -19,29 +19,43 @@ var game = {
         var newWord = new Word(selectWord);
         
         newWord.representWord();
-
+        
         function play() {
-        inquirer
-            .prompt([
-                /* Pass your questions in here */
-                {
-                    type: "input",
-                    message: "Guess a letter!",
-                    name: "inputLetter"
-                }
-            ])
-            .then(function (res) {
-                remaining =  newWord.guessWord(res.inputLetter, remaining);
-                newWord.representWord();
-                if (remaining === 0) {
-                    console.log("GAME OVER :(");
-                    game.gameOff();
-                } else {
-                    play();
-                };
-            });
+        var ready = true;
+        for (i = 0; i < newWord.array.length; i++) {
+            if (newWord.array[i].guessed === false) {
+                ready = false;
+            }
+        }
+
+        if (ready === true) {
+            console.log("\x1b[33m", 'YOU GOT IT RIGHT!!', '\x1b[37m');
+            
+            game.gameOff();
+        } else {
+            inquirer
+                .prompt([
+                    /* Pass your questions in here */
+                    {
+                        type: "input",
+                        message: "Guess a letter!",
+                        name: "inputLetter"
+                    }
+                ])
+                .then(function (res) {
+                    remaining =  newWord.guessWord(res.inputLetter, remaining);
+                    newWord.representWord();
+                    if (remaining === 0) {
+                        console.log("GAME OVER :(");
+                        game.gameOff();
+                    } else {
+                        play();
+                    };
+                });
+            }
         }
         play();
+
     },
     gameOff : function () {
         inquirer
