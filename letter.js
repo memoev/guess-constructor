@@ -1,19 +1,27 @@
 example = 'T'
 
 function Letter(char) {
-    this.wordPlaceholder = [];
+    this.wordPlaceholder = [char];
     this.guessed = false;
     this.guessedLetter = function () {
         if (this.guessed === false) {
             return '_';
         } else {
             return char;
-        }
+        };
     };
-    this.letterChecker =  function () {      
+    this.letterChecker =  function (guessChar) { 
+        if (guessChar === this.wordPlaceholder[0]) {
+            this.guessed = true;
+        };    
     }
 }
 
-var newLetter = new Letter(example); // Never forget to actually create the instance from the constructor!
+module.exports = Letter;
 
-console.log(newLetter.guessedLetter());
+// var newLetter = new Letter(example); // Never forget to actually create the instance from the constructor!
+
+// Testing functionality
+// var character = ' '
+// newLetter.letterChecker(character);
+// console.log(newLetter.guessedLetter());
