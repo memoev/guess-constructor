@@ -1,12 +1,5 @@
 var Letter = require('./letter.js');
 
-// var newLetter = new Letter('T'); // Never forget to actually create the instance from the constructor!
-
-// // Testing functionality
-// var character = 'T'
-// newLetter.letterChecker(character);
-// console.log(newLetter.guessedLetter());
-
 function Word(string) {
     this.array = [];
     for (i = 0; i < string.length; i++) {
@@ -27,9 +20,11 @@ function Word(string) {
     }
 };
 
-var thisString = 'Loop'
-var thisStringLower = thisString.toUpperCase();
-var thisWord =  new Word(thisStringLower);
+module.exports = Word;
 
-thisWord.guessWord('L')
-console.log(thisWord.representWord());
+// var thisString = 'Loop'
+// var thisStringLower = thisString.toUpperCase();
+// var thisWord =  new Word(thisStringLower);
+
+// thisWord.guessWord('L')
+// console.log(thisWord.representWord());
