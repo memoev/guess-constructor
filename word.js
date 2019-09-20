@@ -11,7 +11,7 @@ function Word(string) {
         for (j = 0; j < this.array.length; j++) {
             thisString += this.array[j].guessedLetter() + ' ';
         }
-        return thisString; 
+        console.log(thisString);
     };
     this.guessWord =  function (intakeChar) {
         for (z = 0; z < this.array.length; z++) {
