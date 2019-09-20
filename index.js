@@ -1,4 +1,5 @@
 var Word = require('./word.js');
+var inquirer = require('inquirer');
 
 remainingGuesses = 10;
 arrayOfOptions = [
@@ -8,4 +9,9 @@ arrayOfOptions = [
     'Search Engine',
     'Server'
 ];
+
+var selectWord = arrayOfOptions[Math.floor(Math.random() * arrayOfOptions.length)]
+console.log(selectWord);
+
+var newWord = new Word(selectWord);
 
