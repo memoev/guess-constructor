@@ -1,5 +1,3 @@
-example = 'T'
-
 function Letter(char) {
     this.wordPlaceholder = [char];
     this.guessed = false;
@@ -19,7 +17,7 @@ function Letter(char) {
 
 module.exports = Letter;
 
-// var newLetter = new Letter(example); // Never forget to actually create the instance from the constructor!
+// var newLetter = new Letter('T'); // Never forget to actually create the instance from the constructor!
 
 // Testing functionality
 // var character = ' '
