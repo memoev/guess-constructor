@@ -11,7 +11,7 @@ arrayOfOptions = [
 ];
 
 var game = {
-    selectGame: function (array) {
+    gameOn: function (array, remaining) {
         
         var selectWord = array[Math.floor(Math.random() * array.length)]
         console.log(selectWord);
@@ -19,10 +19,8 @@ var game = {
         var newWord = new Word(selectWord);
         
         newWord.representWord();
-        return newWord;
-    },
-    playGame: function () {
-        var wordUsed = this.selectGame(arrayOfOptions);
+
+        function play() {
         inquirer
             .prompt([
                 /* Pass your questions in here */
@@ -33,10 +31,13 @@ var game = {
                 }
             ])
             .then(function (res) {
-                wordUsed.guessWord(res.inputLetter)
-                wordUsed.representWord();
+                remaining =  newWord.guessWord(res.inputLetter, remaining);
+                newWord.representWord();
+                play();
             });
+        }
+        play();
     }
 };
 
-game.playGame();
+game.gameOn(arrayOfOptions, remainingGuesses);
