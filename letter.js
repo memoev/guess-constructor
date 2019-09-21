@@ -12,7 +12,7 @@ function Letter(char) {
         };
     };
     this.letterChecker =  function (guessChar) { 
-        if (guessChar === this.wordPlaceholder[0].toLowerCase()) {
+        if (guessChar === this.wordPlaceholder[0].toLowerCase() || guessChar === this.wordPlaceholder[0]) {
             this.guessed = true;
         };    
     }
