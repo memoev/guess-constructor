@@ -14,7 +14,6 @@ var game = {
     gameOn: function (array, remaining) {
         
         var selectWord = array[Math.floor(Math.random() * array.length)]
-        console.log(selectWord);
         
         var newWord = new Word(selectWord);
         
