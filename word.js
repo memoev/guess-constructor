@@ -17,7 +17,7 @@ function Word(string) {
         for (z = 0; z < this.array.length; z++) {
             this.array[z].letterChecker(intakeChar);
         }
-        if (string.toUpperCase().includes(intakeChar) || string.includes(intakeChar)) {
+        if (string.toUpperCase().includes(intakeChar) || string.toLowerCase().includes(intakeChar)) {
             console.log("\x1b[32m", 'CORRECT!!', '\x1b[37m');
             return remain;
         } else {
